@@ -1,0 +1,16 @@
+{
+  "early": {
+    "threshold": 0.5200000000000002,
+    "roc_auc": 0.7423802612481858,
+    "cv_f1": 0.35031482744897385,
+    "n_features": 42,
+    "requires": "No grades needed \u2014 usable from week 1"
+  },
+  "mid_semester": {
+    "threshold": 0.46000000000000024,
+    "roc_auc": 0.944121915820029,
+    "cv_f1": 0.7227933426122203,
+    "n_features": 43,
+    "requires": "G1 grade must exist \u2014 usable after first grading period"
+  }
+}

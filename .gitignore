@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environment — never push this, it's huge and machine-specific
+venv/
+env/
+.venv/
+
+# Environment variables — never push, contains passwords
+.env
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Model files — large binary files, optional to push
+# Comment these out if you WANT to push the models
+*.pkl
+*.joblib
+
+# Database
+*.db
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+uvicorn.log
