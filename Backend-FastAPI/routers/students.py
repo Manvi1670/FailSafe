@@ -8,20 +8,20 @@ from typing import Optional
 
 from database import get_db
 from models import Student, Prediction, Intervention
-from auth import get_current_faculty
+from auth import get_current_user
 
 router = APIRouter(prefix="/students", tags=["Students"])
 
 
 @router.get("/")
 def get_all_students(
-    risk_tier : Optional[str] = None,   # filter by HIGH/MEDIUM/LOW
-    checkpoint: Optional[str] = None,   # filter by early/mid_semester
+    risk_tier : Optional[str] = None,
+    checkpoint: Optional[str] = None,
     db        : Session = Depends(get_db),
-    current_user = Depends(get_current_faculty)
+    current_user = Depends(get_current_user)
 ):
     """
-    Returns all students uploaded by the current faculty member,
+    Returns all students uploaded by the current user,
     with their latest prediction and risk tier.
     Supports optional filtering by risk_tier and checkpoint.
     """
@@ -50,19 +50,19 @@ def get_all_students(
             continue
 
         results.append({
-            'student_id'       : student.id,
-            'student_name'     : student.student_name,
-            'student_roll'     : student.student_roll,
-            'checkpoint'       : latest.checkpoint,
-            'risk_probability' : latest.risk_probability,
-            'risk_tier'        : latest.risk_tier,
-            'top_risk_drivers' : json.loads(latest.top_risk_drivers or '[]'),
+            'student_id'            : student.id,
+            'student_name'          : student.student_name,
+            'student_roll'          : student.student_roll,
+            'checkpoint'            : latest.checkpoint,
+            'risk_probability'      : latest.risk_probability,
+            'risk_tier'             : latest.risk_tier,
+            'top_risk_drivers'      : json.loads(latest.top_risk_drivers or '[]'),
             'interventions_total'   : len(latest.interventions),
             'interventions_pending' : sum(1 for i in latest.interventions
                                          if i.status == 'pending'),
             'interventions_resolved': sum(1 for i in latest.interventions
                                          if i.status == 'resolved'),
-            'created_at'       : latest.created_at.isoformat()
+            'created_at'            : latest.created_at.isoformat()
         })
 
     # Sort by risk probability descending (highest risk first)
@@ -78,14 +78,13 @@ def get_all_students(
 def get_student_detail(
     student_id  : int,
     db          : Session = Depends(get_db),
-    current_user = Depends(get_current_faculty)
+    current_user = Depends(get_current_user)
 ):
     """
     Returns full detail for one student:
     - All predictions (early + mid-semester if both exist)
     - SHAP values for each prediction
     - All interventions with current status
-    This is what powers the individual student detail page in React.
     """
     student = (
         db.query(Student)
@@ -105,6 +104,7 @@ def get_student_detail(
     predictions_out = []
     for pred in sorted(student.predictions,
                        key=lambda p: p.created_at, reverse=True):
+
         # Parse SHAP values from stored JSON string
         shap_dict = json.loads(pred.shap_values or '{}')
 
