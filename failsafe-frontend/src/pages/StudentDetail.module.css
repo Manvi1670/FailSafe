@@ -1,0 +1,266 @@
+.page {
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+
+.backBtn:hover { color: #4f46e5; }
+
+.studentHeader {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.studentName {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 0 0 4px;
+}
+
+.studentRoll {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.riskBadge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badgeHIGH   { background: #fee2e2; color: #b91c1c; }
+.badgeMEDIUM { background: #fef3c7; color: #b45309; }
+.badgeLOW    { background: #dcfce7; color: #15803d; }
+
+.riskInfo {
+  text-align: right;
+}
+
+.riskProb {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 0 0 6px;
+}
+
+.checkpoint {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: 6px 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* SHAP chart */
+.shapRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.shapFeature {
+  width: 120px;
+  font-size: 0.73rem;
+  text-align: right;
+  color: #374151;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.shapBarWrap {
+  flex: 1;
+  height: 14px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.shapBarPos {
+  height: 100%;
+  background: #dc2626;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.shapBarNeg {
+  height: 100%;
+  background: #16a34a;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.shapVal {
+  width: 44px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.shapLegend {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+
+.shapLegend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Interventions */
+.fullCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+.interventionItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-left: 3px solid #4f46e5;
+  transition: border-left-color 0.2s;
+}
+
+.interventionItem.resolved  { border-left-color: #16a34a; opacity: 0.75; }
+.interventionItem.in_progress { border-left-color: #d97706; }
+
+.interventionTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.interventionLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.statusSelect {
+  padding: 4px 10px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  background: white;
+}
+
+.statusSelect:focus { border-color: #4f46e5; }
+
+.interventionAction {
+  font-size: 0.78rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.referral {
+  font-size: 0.72rem;
+  color: #4f46e5;
+  font-weight: 600;
+}
+
+.shap {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* Protective factors */
+.protectiveItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.8rem;
+  color: #374151;
+}
+
+.protectiveItem:last-child { border-bottom: none; }
+
+.protIcon { color: #16a34a; font-size: 1rem; flex-shrink: 0; }
+
+.loading {
+  text-align: center;
+  padding: 80px;
+  color: #6b7280;
+}
+
+.summaryBox {
+  background: #fef3c7;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.82rem;
+  color: #92400e;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
