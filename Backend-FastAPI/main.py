@@ -1,6 +1,7 @@
 # ============================================================
 # main.py — FastAPI app entry point (all routers)
 # ============================================================
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
@@ -15,14 +16,19 @@ app = FastAPI(
     version="1.0.0"
 )
 
+allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+]
+client_url = os.getenv("CLIENT_URL")
+if client_url:
+    allowed_origins.append(client_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:5174",
-    ],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
