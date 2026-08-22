@@ -9,12 +9,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from routers import auth_router, predict, students, dashboard, interventions
+from database import Base, engine
+import models
 
 app = FastAPI(
     title="FAILSAFE API",
     description="Student failure prediction and intervention system",
     version="1.0.0"
 )
+
+Base.metadata.create_all(bind=engine)
 
 allowed_origins = [
     "http://localhost:5173",
