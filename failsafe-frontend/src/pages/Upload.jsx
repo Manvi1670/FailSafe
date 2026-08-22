@@ -1,7 +1,7 @@
 
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/NavBar'
 import API from '../api/axios'
 import styles from './Upload.module.css'
 
