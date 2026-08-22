@@ -22,8 +22,7 @@ env/
 
 # Model files — large binary files, optional to push
 # Comment these out if you WANT to push the models
-*.pkl
-*.joblib
+
 
 # Database
 *.db
