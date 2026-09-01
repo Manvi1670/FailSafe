@@ -437,8 +437,8 @@ Create `.env` inside Backend-FastAPI/:
 
 ```
 DATABASE_URL=postgresql://failsafe_user:yourpassword@localhost:5432/failsafe_db
-SECRET_KEY=your_secret_key_here
-ALGORITHM=HS256
+SECRET_KEY=enter_your_secret_key_here
+ALGORITHM=HS256    
 ACCESS_TOKEN_EXPIRE_MINUTES=60
 ```
 
@@ -488,6 +488,7 @@ Then open http://localhost:5173/login
 **Manvitha Bheemavarapu** — [github.com/Manvi1670](https://github.com/Manvi1670)
 
 ---
+
 
 <div align="center">
 
